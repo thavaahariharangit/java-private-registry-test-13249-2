@@ -1,0 +1,16 @@
+version: 2
+
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - maven-artifactory
+
+registries:
+  maven-artifactory:
+      type: "maven-repository"
+      url: "https://jfrogghdemo.jfrog.io/artifactory/e2e-tests-dependabot-maven-repo/"
+      username: "${{ secrets.MAVEN_USERNAME }}" 
+      password: "${{ secrets.MAVEN_PASSWORD }}"
